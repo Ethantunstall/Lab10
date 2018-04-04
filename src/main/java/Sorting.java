@@ -32,8 +32,16 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] bubbleSort(final int[] array) {
-        return null;
-    }
+            int n = array.length;
+            for (int i = 0; i < n - 1; i++)
+                for (int j = 0; j < n- i - 1; j++)
+                    if (array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+        return array;
+        }
 
     /**
      * Selection sort.
@@ -43,7 +51,17 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] selectionSort(final int[] array) {
-        return null;
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < n; j++)
+                if (array[j] < array[min])
+                    min = j;
+            int temp = array[min];
+            array[min] = array[i];
+            array[i] = temp;
+        }
+    return array;
     }
 
     /**
@@ -54,6 +72,12 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] mergeSort(final int[] array) {
+        if (array.length == 1) {
+            return array;
+        }
+        int midpoint = array.length / 2;
+        int[] first = Arrays.copyOfRange(array, 0, midpoint);
+        int[] second = Arrays.copyOfRange(array, midpoint, array.length);
         return null;
     }
 
